@@ -15,7 +15,7 @@ services:
     php: # build ok
         # image: legrizzly/php-custom:3.0.2
         build:
-            context: ./web/php
+            context: ./web/docker/php
             dockerfile: Dockerfile
         container_name: php
         volumes:
@@ -27,7 +27,7 @@ services:
     composer: # build ok
         # image: legrizzly/composer-custom:1.0.2
         build:
-            context: ./web/composer
+            context: ./web/docker/composer
             dockerfile: Dockerfile
         container_name: composer
         volumes:
