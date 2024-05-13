@@ -1,0 +1,10 @@
+.history/*
+.vscode/*
+
+#ignire database
+bdd/database/*
+
+#ignore vendor folder of composer
+web/www/vendor/*
+web/www/composer.json
+web/www/composer.lock

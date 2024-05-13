@@ -1,0 +1,46 @@
+services:
+    adminer: # build ok
+        # image: legrizzly/adminer-custom:2.1.0
+        build:
+            context: ./bdd/adminer
+            dockerfile: Dockerfile
+        container_name: adminer
+        depends_on:
+            - postgres
+        ports:
+            - 81:80
+        networks:
+            - net-for-back
+
+    postgres: # build ok
+        # image: legrizzly/pgsql-custom:1.1.0
+        build:
+            context: ./bdd/postgres
+            dockerfile: Dockerfile
+        container_name: postgres
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        volumes:
+            - ./database:/var/lib/postgresql/data
+        networks:
+            - net-for-back
+
+networks:
+    net-for-back:
+        name: back-db
+# <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#  Dcoker Compose - Adminer & Postgres
+#
+#  #  Developed by    : legrizzly_0341
+#  #  GitHub          : https://github.com/xalsie
+#  #  Docker Hub      : https://hub.docker.com/u/legrizzly
+#
+# ██      ███████  ██████  ██████  ██ ███████ ███████ ██      ██    ██
+# ██      ██      ██       ██   ██ ██    ███     ███  ██       ██  ██
+# ██      █████   ██   ███ ██████  ██   ███     ███   ██        ████
+# ██      ██      ██    ██ ██   ██ ██  ███     ███    ██         ██
+# ███████ ███████  ██████  ██   ██ ██ ███████ ███████ ███████    ██
+#
+#  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_Update: 28/03/24_~~-->
