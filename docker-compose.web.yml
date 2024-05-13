@@ -8,21 +8,21 @@ services:
         ports:
             - 8080:80
         depends_on:
-            - php
+            - symfony
         networks:
             - net-for-front
 
-    php: # build ok
-        # image: legrizzly/php-custom:3.0.2
-        build:
-            context: ./web/docker/php
-            dockerfile: Dockerfile
-        container_name: php
-        volumes:
-            - ./web/www:/var/www/html/
-        networks:
-            - net-for-front
-            - net-for-back
+    # php: # build ok
+    #     # image: legrizzly/php-custom:3.0.2
+    #     build:
+    #         context: ./web/docker/php
+    #         dockerfile: Dockerfile
+    #     container_name: php
+    #     volumes:
+    #         - ./web/www:/var/www/html/
+    #     networks:
+    #         - net-for-front
+    #         - net-for-back
 
     composer: # build ok
         # image: legrizzly/composer-custom:1.0.2
@@ -34,6 +34,18 @@ services:
             - ./web/www:/var/www
         # command: "--version"
         # command: ["require phpmailer/phpmailer"]
+
+    symfony: # build ok
+        # image: legrizzly/symfony-custom:1.0.2
+        build:
+            context: ./web/docker/symfony
+            dockerfile: Dockerfile
+        container_name: symfony
+        volumes:
+            - ./web/www:/var/www/html/
+        networks:
+            - net-for-front
+            - net-for-back
 
 networks:
     net-for-front:

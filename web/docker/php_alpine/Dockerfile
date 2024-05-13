@@ -26,6 +26,11 @@ RUN apk --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing/ a
     php83-tokenizer \
     php83-xml \
     php83-xmlreader \
+    php83-zip \
+    php83-zlib \
+    php83-simplexml \
+    php83-xmlwriter \
+    php83-posix \
     php83-xmlwriter
     # rm /var/cache/apk/* #! use --no-cache
 
@@ -34,6 +39,12 @@ RUN ln -s /usr/bin/php83 /usr/bin/php
 RUN ln -s /usr/sbin/php-fpm83 /usr/sbin/php-fpm
 
 RUN mkdir -p /var/www
+
+# ensure www-data user exists
+RUN  adduser -u 82 -D -S -G www-data www-data
+
+# FIX volume Permission denied
+RUN mkdir -p /var/www/html && chown -R www-data:www-data /var/www/html && chmod 755 /var/www/html
 # <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Composer Dockerfile - PHP 8.3
 # 
