@@ -4,19 +4,34 @@ RUN apk --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing/ a
     wget \ 
     curl \
     git \
-    php83-fpm \
+    tini \
+    php83 \
+    php83-ctype \
     php83-curl \
-    php83-openssl \
+    php83-dom \
+    php83-fileinfo \
+    php83-fpm \
+    php83-gd \
+    php83-intl \
     php83-iconv \
     php83-json \
-    php83-mbstring \
     php83-pgsql \
     php83-pdo_pgsql \
+    php83-mbstring \
+    php83-mysqli \
+    php83-opcache \
+    php83-openssl \
+    php83-phar \
     php83-session \
-    php83-phar && \
-    ln -sf /usr/bin/php83 /usr/bin/php
-
+    php83-tokenizer \
+    php83-xml \
+    php83-xmlreader \
+    php83-xmlwriter
     # rm /var/cache/apk/* #! use --no-cache
+
+# Create symlink for php
+RUN ln -s /usr/bin/php83 /usr/bin/php
+RUN ln -s /usr/sbin/php-fpm83 /usr/sbin/php-fpm
 
 RUN mkdir -p /var/www
 # <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

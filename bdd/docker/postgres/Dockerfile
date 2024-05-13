@@ -27,12 +27,11 @@ ENV PGDATA /var/lib/postgresql/data
 RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 1777 "$PGDATA"
 # VOLUME /var/lib/postgresql/data
 
-ENTRYPOINT "/docker-entrypoint.sh"
-
 STOPSIGNAL SIGINT
 
 EXPOSE 5432
-CMD "postgres"
+
+ENTRYPOINT "/docker-entrypoint.sh"
 # <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  postgres Dockerfile - Postgres 16.2
 # 

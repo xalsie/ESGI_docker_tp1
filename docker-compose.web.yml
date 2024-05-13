@@ -3,8 +3,8 @@ services:
         image: nginx:alpine
         container_name: nginx
         volumes:
-            - ./docker/nginx/nginx.conf/default.conf:/etc/nginx/conf.d/default.conf
-            - ./www:/var/www/html/
+            - ./web/docker/nginx/nginx.conf/default.conf:/etc/nginx/conf.d/default.conf
+            - ./web/www:/var/www/html/
         ports:
             - 8080:80
         depends_on:
@@ -15,11 +15,11 @@ services:
     php: # build ok
         # image: legrizzly/php-custom:3.0.2
         build:
-            context: ./web/php
+            context: ./web/docker/php
             dockerfile: Dockerfile
         container_name: php
         volumes:
-            - ./www:/var/www/html/
+            - ./web/www:/var/www/html/
         networks:
             - net-for-front
             - net-for-back
@@ -27,11 +27,11 @@ services:
     composer: # build ok
         # image: legrizzly/composer-custom:1.0.2
         build:
-            context: ./web/composer
+            context: ./web/docker/composer
             dockerfile: Dockerfile
         container_name: composer
         volumes:
-            - ./www:/var/www
+            - ./web/www:/var/www
         # command: "--version"
         # command: ["require phpmailer/phpmailer"]
 

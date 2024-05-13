@@ -1,5 +1,4 @@
 #!/bin/sh
-# chown -R postgres "$PGDATA"
 
 echo "########## Initializing datadir..."
 mkdir -p "$PGDATA"
@@ -12,11 +11,9 @@ chmod 775 /var/run/postgresql
 
 echo "PGDATA: $PGDATA"
 
-ls -al $PGDATA
 
 if [ -z "$(ls -A "$PGDATA")" ]; then
     echo "########## Initializing database..."
-    # su-exec postgres initdb
     su-exec postgres initdb --username="$POSTGRES_USER"
 
     sed -ri "s/^#(listen_addresses\s*=\s*)\S+/\1'*'/" "$PGDATA"/postgresql.conf
@@ -74,4 +71,5 @@ if [ -z "$(ls -A "$PGDATA")" ]; then
     { echo; echo "host all all all trust"; } >> "$PGDATA"/pg_hba.conf
 fi
 
-exec su-exec postgres "$@"
+# exec su-exec postgres "$@"
+exec su-exec postgres postgres

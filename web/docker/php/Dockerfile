@@ -1,9 +1,5 @@
 FROM legrizzly/php_alpine:1.0.1
 
-RUN apk --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing add \
-    # install necessary PHP packages
-    tini \
-    rm -rf /var/cache/apk/*
 
 # ensure www-data user exists
 RUN  adduser -u 82 -D -S -G www-data www-data
@@ -16,15 +12,14 @@ RUN mkdir -p /var/log && chmod 777 /var/log
 
 ADD rootfs /
 
-ENTRYPOINT "/sbin/tini --"
+ENTRYPOINT ["/sbin/tini", "--"]
 
 EXPOSE 9000
 
-USER www-data
-
 WORKDIR /var/www
 
-CMD "php --nodaemonize"
+CMD ["/usr/sbin/php-fpm", "-R", "--nodaemonize"]
+
 # <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  PHP-FPM 8.3 Dockerfile - PHP 8.3
 # 

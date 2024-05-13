@@ -2,20 +2,20 @@ services:
     adminer: # build ok
         # image: legrizzly/adminer-custom:2.1.0
         build:
-            context: ./bdd/adminer
+            context: ./bdd/docker/adminer
             dockerfile: Dockerfile
         container_name: adminer
         depends_on:
             - postgres
         ports:
-            - 81:80
+            - 8081:80
         networks:
             - net-for-back
 
     postgres: # build ok
         # image: legrizzly/pgsql-custom:1.1.0
         build:
-            context: ./bdd/postgres
+            context: ./bdd/docker/postgres
             dockerfile: Dockerfile
         container_name: postgres
         environment:
@@ -23,7 +23,7 @@ services:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
         volumes:
-            - ./database:/var/lib/postgresql/data
+            - ./bdd/database:/var/lib/postgresql/data
         networks:
             - net-for-back
 
