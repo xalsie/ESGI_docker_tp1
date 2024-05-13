@@ -24,11 +24,11 @@ Rendu final:
 
 ## URL Docker Hub
 
--   [Composer](https://hub.docker.com/r/legrizzly/composer-custom)
--   [postgres](https://hub.docker.com/r/legrizzly/pgsql-custom)
--   [Symfony](https://hub.docker.com/r/legrizzly/symfony-custom)
 -   [PHP](https://hub.docker.com/r/legrizzly/php-custom)
+-   [Composer](https://hub.docker.com/r/legrizzly/composer-custom)
+-   [Symfony](https://hub.docker.com/r/legrizzly/symfony)
 -   [Adminer](https://hub.docker.com/r/legrizzly/adminer-custom)
+-   [postgres](https://hub.docker.com/r/legrizzly/pgsql-custom)
 
 ## Installation Symfony CLI
 
