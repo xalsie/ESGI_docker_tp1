@@ -1,4 +1,4 @@
-FROM legrizzly/php_alpine:1.0.1
+FROM legrizzly/php_alpine:latest
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
@@ -6,7 +6,7 @@ WORKDIR /var/www
 
 # ENTRYPOINT "composer"
 # <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#  Composer Dockerfile - PHP 8.3
+#  Dockerfile - Composer
 # 
 #  #  Developed by    : legrizzly_0341
 #  #  GitHub          : https://github.com/xalsie
@@ -18,4 +18,4 @@ WORKDIR /var/www
 # ██      ██      ██    ██ ██   ██ ██  ███     ███    ██         ██
 # ███████ ███████  ██████  ██   ██ ██ ███████ ███████ ███████    ██
 #
-#  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_Update: 28/03/24_~~-->
+#  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_Update: 14/05/24_~~-->

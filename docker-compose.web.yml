@@ -12,18 +12,6 @@ services:
         networks:
             - net-for-front
 
-    # php: # build ok
-    #     # image: legrizzly/php-custom:3.0.2
-    #     build:
-    #         context: ./web/docker/php
-    #         dockerfile: Dockerfile
-    #     container_name: php
-    #     volumes:
-    #         - ./web/www:/var/www/html/
-    #     networks:
-    #         - net-for-front
-    #         - net-for-back
-
     composer: # build ok
         # image: legrizzly/composer-custom:1.0.2
         build:

@@ -1,4 +1,4 @@
-FROM legrizzly/php_alpine:1.0.1
+FROM legrizzly/php_alpine:latest
 
 COPY src/adminer-4.8.1.php /srv/index.php
 

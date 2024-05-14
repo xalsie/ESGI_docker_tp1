@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}todos{% endblock %}
+
+{% block body %}
+    <style>
+        .wrapper {
+            margin: 1em auto;
+            width: 95%;
+        }
+    </style>
+
+    <div class="wrapper">
+        <h1>Great Todos</h1>
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Done</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for Todo in todos %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ Todo.titre }}</td>
+                    <td>{{ Todo.done }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -42,3 +42,23 @@ composer create-project symfony/skeleton:"7.0.*" my_project_directory
 cd my_project_directory
 composer require webapp
 ```
+
+## Symfony : Migration
+
+```bash
+docker compose -f ".\docker-compose.web.yml" exec symfony /bin/bash
+cd my_project_directory
+symfony console doctrine:migrations:migrate
+```
+
+### Démarer les conteneurs : Web
+
+```bash
+docker compose -f ".\docker-compose.web.yml" up -d
+```
+
+### Démarer les conteneurs : BDD
+
+```bash
+docker compose -f ".\docker-compose.bdd.yml" up -d
+```

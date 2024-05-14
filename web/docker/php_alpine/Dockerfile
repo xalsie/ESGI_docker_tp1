@@ -46,7 +46,7 @@ RUN  adduser -u 82 -D -S -G www-data www-data
 # FIX volume Permission denied
 RUN mkdir -p /var/www/html && chown -R www-data:www-data /var/www/html && chmod 755 /var/www/html
 # <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#  Composer Dockerfile - PHP 8.3
+#  Dockerfile - PHP 8.3
 # 
 #  #  Developed by    : legrizzly_0341
 #  #  GitHub          : https://github.com/xalsie
@@ -58,4 +58,4 @@ RUN mkdir -p /var/www/html && chown -R www-data:www-data /var/www/html && chmod 
 # ██      ██      ██    ██ ██   ██ ██  ███     ███    ██         ██
 # ███████ ███████  ██████  ██   ██ ██ ███████ ███████ ███████    ██
 #
-#  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_Update: 28/03/24_~~-->
+#  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~_Update: 14/05/24_~~-->
